@@ -3,34 +3,7 @@
   <head>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="application/javascript">
-    window.addEventListener('load', function () {
-      var app = new Vue({
-        el: '#app',
-        data: {
-          message: 'Let\'s begin!'
-        },
-        methods: {
-          sayHello: function() {
-            this.message = new Date().toLocaleString()
-          }
-        }
-      })
-
-      var watchapp = new Vue({
-        el: '#watchapp',
-        data: {
-          invalue: '',
-        },
-        computed: {
-          outvalue: function () {
-            return this.invalue + ' ' +  this.invalue
-          }
-        }
-      })
-
-    })
-    </script>
+    <script src="app.js"></script>
   </head>
 
   <body>
@@ -42,6 +15,9 @@
     <div id="watchapp">
       <input v-model="invalue"></input>
       <p>{{ outvalue }}</p>
+    </div>
+
+    <div id="apiapp">
     </div>
 
   </body>
