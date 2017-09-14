@@ -25,6 +25,23 @@ window.addEventListener('load', function () {
 
   var apiapp = new Vue({
     el: '#apiapp',
+    data: {
+      email: '',
+      ispawned: '',
+    },
+    methods: {
+      getPawnedStatus: function () {
+        this.ispawned = 'Fake true'
+        return
+        axios.get('https://yesno.wtf/api')
+          .then(function (response) {
+            vm.answer = _.capitalize(response.data.answer)
+        })
+          .catch(function (error) {
+            vm.answer = 'Error! Could not reach the API. ' + error
+        })
+      }
+    }
   })
 
 
