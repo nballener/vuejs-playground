@@ -15,6 +15,14 @@
           }
         }
       })
+
+      var todoapp = new Vue({
+        el: '#todoapp',
+        data: {
+          todoSubsection: 'oh-yeah'
+        }
+      })
+
     })
     </script>
   </head>
@@ -24,6 +32,11 @@
       <p>{{ message }}</p>
       <button v-on:click="sayHello">Click Me!</button>
     </div>
+
+    <div id="todoapp">
+      <div v-bind:id="todoSubsection">{{ todoSubsection }}</div>
+    </div>
+
   </body>
 
 </html>
