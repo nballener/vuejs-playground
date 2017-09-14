@@ -2,6 +2,7 @@
 
   <head>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="application/javascript">
     window.addEventListener('load', function () {
       var app = new Vue({
@@ -16,10 +17,15 @@
         }
       })
 
-      var todoapp = new Vue({
-        el: '#todoapp',
+      var watchapp = new Vue({
+        el: '#watchapp',
         data: {
-          todoSubsection: 'oh-yeah'
+          invalue: '',
+        },
+        computed: {
+          outvalue: function () {
+            return this.invalue + ' ' +  this.invalue
+          }
         }
       })
 
@@ -33,8 +39,9 @@
       <button v-on:click="sayHello">Click Me!</button>
     </div>
 
-    <div id="todoapp">
-      <div v-bind:id="todoSubsection">{{ todoSubsection }}</div>
+    <div id="watchapp">
+      <input v-model="invalue"></input>
+      <p>{{ outvalue }}</p>
     </div>
 
   </body>
