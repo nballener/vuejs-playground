@@ -27,18 +27,18 @@ window.addEventListener('load', function () {
     el: '#apiapp',
     data: {
       email: '',
-      ispawned: '',
+      message: '',
     },
     methods: {
       getPawnedStatus: function () {
-        this.ispawned = 'Fake true'
-        return
-        axios.get('https://yesno.wtf/api')
-          .then(function (response) {
-            vm.answer = _.capitalize(response.data.answer)
+        var vm = this
+        axios.get('https://haveibeenpwned.com/api/v2/breachedaccount/' + vm.email)
+        .then(function (response) {
+          vm.message = 'Sorry, pwnd!'
         })
-          .catch(function (error) {
-            vm.answer = 'Error! Could not reach the API. ' + error
+        .catch(function (error) {
+          vm.message = error.response.status
+          console.log(error)
         })
       }
     }
