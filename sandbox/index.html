@@ -1,6 +1,10 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
@@ -8,22 +12,24 @@
   </head>
 
   <body>
-    <div id="app">
+    <div id="app" class="contianer">
       <p>{{ message }}</p>
       <button v-on:click="sayHello">Click Me!</button>
     </div>
 
-    <div id="watchapp">
+    <div id="watchapp" class="container">
       <input v-model="invalue"></input>
       <p>{{ outvalue }}</p>
     </div>
 
-    <div id="apiapp">
-      <input v-model="email"></input>
-      <button v-on:click="getPawnedStatus">Go!</button>
-      <p>{{ message }}</p>
+    <div id="apiapp" class="container">
+      <input v-model="email" placeholder="email"></input>
+      <button v-on:click="getPawnedStatus" class="btn">Go!</button>
+      <div class="container">{{ message }}</div>
     </div>
 
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 
 </html>
