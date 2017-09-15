@@ -37,8 +37,13 @@ window.addEventListener('load', function () {
           vm.message = 'Sorry, pwnd!'
         })
         .catch(function (error) {
-          vm.message = error.response.status
-          console.log(error)
+          let status_code = error.response.status
+          if (status_code == 404) {
+            vm.message = 'All clear!'
+          }
+          else {
+            vm.message = 'Error getting information!'
+          }
         })
       }
     }
